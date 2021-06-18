@@ -19,13 +19,12 @@ class AlienInvasion:
 
     def run_game(self):
         """开始游戏主循环"""
-        i=1
+        # i=1
         while True:
-            time.sleep(1)
-            i+=1
+            # time.sleep(1)
+            # i+=1
+            # print(i)
             self._check_events()
-
-            print(i)
             self.ship.update()
             self._update_screen()
 
@@ -35,15 +34,23 @@ class AlienInvasion:
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = True
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = True
+                self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False
+                self._check_keyup_events(event)
+
+    def _check_keydown_events(self, event):
+        """响应按键"""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = True
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = True
+
+    def _check_keyup_events(self, event):
+        """响应松开"""
+        if event.key == pygame.K_RIGHT:
+            self.ship.moving_right = False
+        elif event.key == pygame.K_LEFT:
+            self.ship.moving_left = False
 
     def _update_screen(self):
         """更新屏幕上的图像，并切换到新屏幕"""
