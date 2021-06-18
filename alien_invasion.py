@@ -2,6 +2,7 @@ import sys
 import pygame
 from settings import Settings
 from ship import Ship
+import time
 
 
 class AlienInvasion:
@@ -18,8 +19,13 @@ class AlienInvasion:
 
     def run_game(self):
         """开始游戏主循环"""
+        i=1
         while True:
+            time.sleep(1)
+            i+=1
             self._check_events()
+
+            print(i)
             self.ship.update()
             self._update_screen()
 
