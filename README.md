@@ -13,3 +13,6 @@ sublime text 里面的python 我安装pygame时候装到了anaconda里面，怎�
 2021.06.18
 
 为了探究究竟是什么影响着pygame.event.get()，加了个延时和统计后发现，while循环中，并不是一直在等着pygame，而是不断地循环，一秒钟几千次的循环。看了看markdown发现就是本质的html。
+做了半个子弹，饿了，下雨了 等雨停吃饭。
+
+吃完饭了，照葫芦画瓢做完了子弹部分。其中那个sprite不是很懂，sprite是个组，把bullet放在了bullets里面，但是bullets.update()是吧里面的所有的bullet都进行了bullet.update()嘛？应该是这样的，还挺有意思的。子弹出界了得记得清除，否则出界了他还在继续计算位置和进行绘画，会导致程序变卡。
